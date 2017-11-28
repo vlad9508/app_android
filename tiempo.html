@@ -1,75 +1,69 @@
-
+<!DOCTYPE html>
 <html>
 <head>
-	<title>.:Registro:.</title>
+	<title>.:Registro Tiempos:.</title>
 	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-	<!--<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">	-->
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">	
 	<script src="jquery-3.2.1.min.js"></script>
-	<script >
-		$(document).ready(function(){
-			var getRegistro = function(tipoM1, usuario1, edad1, contrasena1, nombre1){
-
-				return $.getJSON("registro.php", {
-            //192.168.0.18
-            "tipoM1": tipoM1, "usuario1": usuario1, "edad1": edad1, "contrasena1": contrasena1, "nombre1":nombre1
-            
-        });
-			}
-
-			//}
-			$("#enviar").click(function(e){
-				e.preventDefault();
-				var tipoM1 = $("#tipoM").val();
-				var usuario1 = $("#usuario").val();
-				var edad1 = $("#edad").val();
-				//var edad2 = edad1.toString();
-				var contrasena1 = $("#contrasena").val();
-				var contrasena3 = $("#contrasena2").val();
-				var nombre1 = $("#nombre").val();
-				if (tipoM1 == "" | usuario1 == "" | edad1 == "" | nombre1 == "" | contrasena1 == "" ) {
-					alert("falta algun campo por llenar");
-				} else {
-					if (contrasena1 == contrasena3) {
-					getRegistro(tipoM1, usuario1, edad1, contrasena1, nombre1)
-				.done(function(data) {
-					var mensaje1 = data.mensaje;
-					alert(mensaje1);
-
-					});
-				$(location).attr('href',"index.html"); 
-				} else {
-					alert("las Contraseñas no coiciden");
-
-				}
-				} 
-				
-
-				
-				//var datos = {"tipoM1" : tipoM1, "usuario1" : usuario1, "edad1" : edad1, "contrasena1" : contrasena1, "nombre1" : nombre1};
-				//alert(datos);
-				/*$.ajax({
-					url: "registros.php",
-					dataType: "json",
-					type: "POST",
-					data: datos,
-					success : function(data){
-
-					},
-					error:function(jqXHR, exception){ 
-					alert(“no connection”);}
-					 
-				});
-				window.open("registro.php");*/
+	<style type="text/css">
+		.navbar{
+			height: 70px;
 			
-			});
-		});
-	</script>
+		}
+		.nav{
+			margin-top: 1%;
+
+		}
+		.lis{
+			margin-left: 10%;
+		}
+		.ext{
+		
+			margin-left: 1600%;
+		}
+		
+		.tam{
+			width: 250px;
+		}
+		.se{
+			margin-top: -10px;
+			margin-left: 15px;
+		}
+		.menos{
+			margin-left: 20px;
+		}
+	</style>
 </head>
 <body style="background: #72C3FA">
-	<div class="conteiner">
+	<nav class="navbar navbar-inverse">
+		<div class="conteiner-fluid">
+			<div class="navbar-header">
+				<a href="javascript:void(0);" class=" nav navbar-brand" >Proyecto final</a>
+			</div>
+			<ul class="nav lis navbar-nav">
+				<li >
+					<a href="principal.html">Inicio</a>
+				</li>
+				<li>
+					<a href="guardarBG.php">Actualizar datos</a>
+				</li>
+				<li class="active">
+					<a href="tiempo.html">Registrar Tiempos</a>
+				</li>
+				<li>
+					<a href="guardarBC.php">Graficas</a>
+				</li>
+				<li>
+					<a href="index.html" ><i class="fa fa-external-link ext fa-2x" aria-hidden="true"></i></a>
+				</li>
+			</ul>
+			
+		</div>
+	</nav>
+<div class="conteiner">
 		<div class="row">
 			<div class="col-sm-12 " >
-				<div class="col-sm-6 col-sm-offset-3 col-xs-offset-3" style="height: 100%; background-color: #000000; width: 50%; margin-top: 15%">
+				<div class="col-sm-6 col-sm-offset-3 col-xs-offset-3" style="height: 100%; background-color: #000000; width: 50%; ">
 					<form class="form-horizontal" style="margin-top: 5%; " >
 						<div class="form-group">
 							<label class="control-label col-sm-3" style="color: #ffffff">Tipo de usuario:</label>

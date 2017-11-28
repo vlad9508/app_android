@@ -5,6 +5,14 @@
 	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
 	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">	
 	<script src="jquery-3.2.1.min.js"></script>
+	<script >
+		$(document).ready(function(){
+			$("#enviar").click(function(e){
+				e.preventDefault();
+				$(location).attr('href',"principal.html"); 
+			});
+		});
+	</script>
 </head>
 <body style="background: #72C3FA">
 	<div class="conteiner">
@@ -15,17 +23,17 @@
 						<div class="form-group">
 							<label class="control-label col-sm-3" style="color: #ffffff">Usuario:</label>
 							<div class="col-sm-9">
-							<input type="text" name="usuario" class="form-control" placeholder="Usuario">
+							<input type="text"  class="form-control" placeholder="Usuario">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-3"  style="color: #ffffff; ">Contraseña:</label>
 							<div class="col-sm-9">
-							<input type="password" name="contraseña" class="form-control "  placeholder="Contraseña">
+							<input type="password"  class="form-control "  placeholder="Contraseña">
 							</div>
 						</div>
 						<div class="col-sm-offset-3 col-sm-10">
-       					 	<button type="submit" class="btn btn-default">Entrar</button>
+       					 	<button type="submit" class="btn btn-default" id="enviar">Entrar</button>
      					</div>
 					</form>
 					<label class="col-sm-8 text-right" style="color: #ffffff; font-size: 12px; margin-top: 10px">si no cuentas con una cuenta </label>

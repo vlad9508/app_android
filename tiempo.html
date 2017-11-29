@@ -15,6 +15,7 @@
 				var bu = data.existe; 
 				$(location).attr('href',bu);
 			});
+		});
 
     var tiempo = {
         hora: 0,
@@ -50,6 +51,7 @@
             }, 17);
        
     });
+    
     $("#btn-pausar").click(function(e){
     	e.preventDefault();
     	clearInterval(tiempo_corriendo);

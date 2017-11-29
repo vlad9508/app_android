@@ -9,7 +9,7 @@
 		$(document).ready(function(){
 			$(".salir").click(function(){
 				
-				$.getJSON("prueba.php", {
+				$.getJSON("https://nadadores.000webhostapp.com/prueba.php", {
 				"salida": "si"
 			}). done(function(data){
 				var bu = data.existe; 
@@ -51,46 +51,38 @@
             }, 17);
        
     });
-    
+
     $("#btn-pausar").click(function(e){
     	e.preventDefault();
     	clearInterval(tiempo_corriendo);
     });
+    $("#enviar").click(function(e){
+    	e.preventDefault();
+				var estilo = $("#estilo").val();
+				var vuelta = $("#vuelta").val();
+				var alumno = $("#alumno").val();
+				$.getJSON("https://nadadores.000webhostapp.com/timpo.php", {
+				"estilo": estilo, "vuelta" : vuelta, "alumno" : alumno, "minuto" : tiempo.hora, "segundo" : tiempo.minuto, "micro" : tiempo.segundo
+			}). done(function(data){
+				var mensaje1 = data.mensaje;
+					alert(mensaje1);
+					 var entro = data.existe;
+					 if (entro == 1) {
+					 	
+				} else {
+					$(location).attr('href',"tiempo.html");
+				}
+					
+				
+			});
+		});
 });
 	</script>
 	</script>
 	<style type="text/css">
-		.navbar{
-			height: 70px;
-			
-		}
-		.nav{
-			margin-top: 1%;
-
-		}
-		.lis{
-			margin-left: 10%;
-					}
-		.ext{
-		
-			margin-left: 60%;
-
-
-		}
-		
-		.tam{
-			width: 250px;
-		}
-		.se{
-			margin-top: -10px;
-			margin-left: 15px;
-		}
-		.menos{
-			margin-left: 20px;
-		}
-		#timer{margin:10% auto 0;width:200px; margin-top: 15%}
+				#timer{margin:10% auto 0;width:200px; margin-top: 15%}
 		#timer .container{display:table;background:#777;color:#eee;font-weight:bold;width:15%;text-align:center;text-shadow:1px 1px 4px #999;}
-		#timer .container div{display:table-cell;font-size:40px;padding:2px;width:15px;}
+		#timer .container div{display:table-cell;font-size:30px;padding:2px;width:15px;}
 		#timer .container .divider{width:10px;color:#ddd;}
 		
 	</style>
@@ -99,7 +91,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="conteiner-fluid">
 			<div class="navbar-header">
-				<a href="javascript:void(0);" class=" nav navbar-brand" >Proyecto final</a>
+				<a href="javascript:void(0);" class=" nav navbar-brand" ><img src="logo.png"></a>
 			</div>
 			<ul class="nav lis navbar-nav">
 				<li >
@@ -113,7 +105,7 @@
 				</li>
 				
 				<li>
-					<button class="btn btn-link salir" style="margin-top: -55%; margin-right: 50%;"><i class="fa fa-external-link ext fa-2x" aria-hidden="true"></i></button>
+					<button class="btn btn-link salir" style="margin-top: -70%; margin-left: 70%;;"><i class="fa fa-external-link ext fa-2x" aria-hidden="true"></i></button>
 				</li>
 			</ul>
 			
@@ -122,12 +114,15 @@
 <div class="conteiner">
 		<div class="row">
 			<div class="col-sm-12 " >
-				<div class="col-sm-6 col-sm-offset-3 col-xs-offset-3" style="height: 100%; background-color: #000000; width: 50%; ">
+			<div class="col-sm-6 col-sm-offset-3 col-xs-offset-3" style="background: #000000; width: 120px; margin-left: 35%">
+				<img src="natacion.png" style="width: 100px;">
+			</div>
+				<div class="col-sm-6 col-sm-offset-3 col-xs-offset-3" style="height: 100%; background-color: #000000; width: 50%; margin-top: 10%; ">
 					<form class="form-horizontal" style="margin-top: 5%; " >
 						<div class="form-group">
 							<label class="control-label col-sm-3" style="color: #ffffff">Estilo de Nado:</label>
 							<div class="col-sm-9">
-							<select class="form-control"  id="tipoM">
+							<select class="form-control"  id="estilo">
 								<option>seleccione..</option>
 								<option value="1">Pecho</option>
 								<option value="2">Crol</option>
@@ -146,7 +141,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-3" style="color: #ffffff">Vueltas</label>
 							<div class="col-sm-9">
-							<select class="form-control"  id="tipoM">
+							<select class="form-control"  id="vuelta">
 								<option>seleccione..</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -168,8 +163,8 @@
                 				<div class="divider">:</div>
                 				<div id="second">00</div>                
             				</div>
-            				<button id="btn-comenzar" class="btn btn-link " value="1"><i  style="border:none;" class="fa fa-play-circle ext fa-3x" id="boton" aria-hidden="true"></i></button>
-            				<button id="btn-pausar" class="btn btn-link " value="1"><i  style="border:none;" class="fa fa-pause-circle ext fa-3x" id="boton2" aria-hidden="true"></i></button>
+            				<button id="btn-comenzar" class="btn btn-link " ><i  style="border:none;" class="fa fa-play-circle ext fa-3x" id="boton" aria-hidden="true"></i></button>
+            				<button id="btn-pausar" class="btn btn-link " ><i  style="border:none;" class="fa fa-pause-circle ext fa-3x" id="boton2" aria-hidden="true"></i></button>
         				</div>
 						
 						<div class="col-sm-offset-3 col-sm-10" style="margin-top: 20px;">

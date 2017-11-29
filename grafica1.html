@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>.:Grafica:.</title>
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">	
+	<script src="http://code.highcharts.com/stock/highstock.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(){
+
+            
+            $(".salir").click(function(){
+                $.getJSON("https://nadadores.000webhostapp.com/prueba.php", {
+                "salida": "si"
+            }). done(function(data){
+                var bu = data.existe; 
+                $(location).attr('href',bu);
+            });
+                
+            });
+        });
+		$.getJSON('https://nadadores.000webhostapp.com/grafica.php?saludo=si', function (data) {
+            var hola = JSON.parse(data.valor);
+            
+    Highcharts.chart('container', {
+        chart: {
+            zoomType: 'x'
+        },
+        title: {
+            text: 'grafica 1'
+        },
+        subtitle: {
+            text: document.ontouchstart === undefined ?
+                    'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+        },
+        xAxis: {
+            type: 'datetime'
+        },
+        yAxis: {
+            title: {
+                text: 'Exchange rate'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: {
+                        x1: 0,
+                        y1: 0,
+                        x2: 0,
+                        y2: 1
+                    },
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                marker: {
+                    radius: 2
+                },
+                lineWidth: 1,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                threshold: null
+            }
+        },
+
+        series: [{
+            type: 'area',
+            name: 'Tiempo: ',
+            data: [
+                [Date.UTC(2017,11,2), hola],
+                [Date.UTC(2017,11,8), 3.5],
+                [Date.UTC(2017,11,12), 3.7],
+                [Date.UTC(2017,11,29), hola]
+
+            ]
+        }]
+    });
+});
+	</script>
+</head>
+<body style=" background: #72C3FA;" >
+<nav class="navbar navbar-inverse">
+        <div class="conteiner-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class=" nav navbar-brand" ><img src="logo.png"></a>
+            </div>
+            <ul class="nav lis navbar-nav">
+                <li >
+                    <a href="principalA.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="actualisarA.html">Actualizar datos</a>
+                </li>
+                <li class="active">
+                    <a href="grafica1.html">grafica</a>
+                </li>
+                
+                <li>
+                    <button class="btn btn-link salir" style="margin-top: -70%; margin-left: 70%;"><i class="fa fa-external-link ext fa-2x" aria-hidden="true"></i></button>
+                </li>
+            </ul>
+            
+        </div>
+    </nav>
+    <div class="col-sm-6 col-sm-offset-3 col-xs-offset-3" style="background: #000000; width: 120px; margin-left: 35%">
+                <img src="natacion.png" style="width: 100px;">
+            </div>
+<div id="container" style="min-width: 310px; height: 400; margin-top: 10%;  "></div>
+</body>
+</html>

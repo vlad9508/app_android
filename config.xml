@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-    id          = "com.phonegap.nadadores"
+    id          = "com.phonegap.natare"
     version     = "1.0.0" >
 
 <!-- versionCode is optional and Android only -->
 
-  <name>nadadores</name>
+  <name>natare</name>
   <!-- Allow links to web pages to open in a browser -->
 	 <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
@@ -22,12 +22,12 @@
 
   <access origin="*" />
 
-  <!-- Define app icon for each platform. 
+    Define app icon for each platform. 
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
-    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" /> -->
+    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
 
   <description>
       conexion a un servidor
